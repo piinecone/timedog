@@ -1,12 +1,12 @@
 Timedog
 =======
 
-Timedog
+Timedog travels back in time to restore your files.
 
 Dependencies
 ------------
 
-* ruby
+* ruby 2.x
 
 Installation
 ------------
