@@ -3,7 +3,7 @@ Timedog
 
 Timedog travels back in time to restore your files.
 
-![Alt text](https://s3.amazonaws.com/piinecone/github/timedog/timedog_herself.JPG)
+![Alt text](https://s3.amazonaws.com/piinecone/github/timedog/timedog.jpg)
 
 Dependencies
 ------------
