@@ -42,7 +42,7 @@ module Timedog
         changed_files = []
         should_create_backup = false
 
-        sleep 300
+        sleep 120
       end
     end
 
