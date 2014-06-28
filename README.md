@@ -41,11 +41,14 @@ Usage
 * `timedog add *.file_extensions_to_backup`
 * `timedog watch` to tell timedog to watch the current directory for changes and create restore points
 * `timedog list` to list backup points:
-    ```
-    [1] 1403920093 created at 2014-06-27 18:48:13 -0700
-    [2] 1403920088 created at 2014-06-27 18:48:08 -0700
-    [3] 1403920083 created at 2014-06-27 18:48:03 -0700
-    ```
+    
+   `[1] 1403920093 created at 2014-06-27 18:48:13 -0700`
+
+   `[2] 1403920088 created at 2014-06-27 18:48:08 -0700`
+   
+   `[3] 1403920083 created at 2014-06-27 18:48:03 -0700`
+   
+
 * `timedog restore <number>` to reset your matching working directory files to that of the chosen restore point
 
 How it works
