@@ -41,7 +41,7 @@ Usage
 
 * cd ~/codebase/with/crashy/files
 * `timedog add *.file_extensions_to_backup`
-* `timedog watch` to tell timedog to watch the current directory for changes and create restore points
+* `timedog watch <seconds>` to tell timedog to watch the current directory for changes and create restore points every `seconds` seconds (default is 120)
 * `timedog list` to list backup points:
     
    ```

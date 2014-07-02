@@ -4,7 +4,10 @@ require 'timedog/utils'
 
 module Timedog
   module Watch
+    DEFAULT_DELTA_TIME = 120
+
     def self.run!
+      delta_time = ARGV.first.nil? ? DEFAULT_DELTA_TIME : ARGV.first.to_i
       create_initial_backup
       loop do
         should_create_backup = false
@@ -42,7 +45,7 @@ module Timedog
         changed_files = []
         should_create_backup = false
 
-        sleep 120
+        sleep delta_time
       end
     end
 
