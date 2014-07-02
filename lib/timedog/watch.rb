@@ -79,8 +79,10 @@ module Timedog
     end
 
     def self.copy_src_to_dst(src, dst)
-      FileUtils.mkdir_p(File.dirname(dst))
-      FileUtils.cp(src, dst)
+      if File.exists? src
+        FileUtils.mkdir_p(File.dirname(dst))
+        FileUtils.cp(src, dst)
+      end
     end
 
     def self.recent_backup_path_for(filename, options={})
