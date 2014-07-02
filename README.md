@@ -25,6 +25,8 @@ Installation
 
 ### Windows ###
 
+** Currently completely untested **
+
 * install ruby (http://rubyinstaller.org/) (allow it to add ruby to your $PATH)
 * install [git bash for windows](http://git-scm.com/downloads)
 * run git bash
