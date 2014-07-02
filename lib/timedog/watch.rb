@@ -92,10 +92,15 @@ module Timedog
     def self.filepaths
       @filepaths ||= begin
         paths = []
-        patterns.each do |pattern|
-          extension = pattern.partition('.').last
-          match = "**/*.#{extension}"
-          paths << Dir[match]
+        if patterns.empty?
+          puts "No patterns in .timedog/config, backing up everything"
+          paths << Dir['**/*'].select {|f| !File.directory? f }
+        else
+          patterns.each do |pattern|
+            extension = pattern.partition('.').last
+            match = "**/*.#{extension}"
+            paths << Dir[match]
+          end
         end
         paths.flatten
       end
