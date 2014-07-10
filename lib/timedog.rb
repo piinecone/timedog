@@ -25,6 +25,9 @@ module Timedog
         when 'clean'
           require 'timedog/clean'
           Timedog::Clean.run!
+        when 'status'
+          require 'timedog/status'
+          Timedog::Status.run!
         when 'list'
           require 'timedog/list'
           Timedog::List.run!
@@ -32,6 +35,7 @@ module Timedog
           print <<EOF
 usage: timedog list|watch|restore|add|remove|clean
 
+   status
    list
    watch
    restore
