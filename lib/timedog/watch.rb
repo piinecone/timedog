@@ -1,4 +1,3 @@
-require 'pry-nav'
 require 'listen'
 require 'timedog/utils'
 
@@ -38,7 +37,7 @@ module Timedog
             # puts "Copying #{changed_file} to #{target_backup_path}"
             copy_src_to_dst changed_file, target_backup_path
           end
-          puts "[#{Time.now}] Created recovery point at #{backup_dir}"
+          puts "[#{Time.now.to_s.blue}] Created recovery point at #{backup_dir.yellow}"
         end
 
         unchanged_files = []

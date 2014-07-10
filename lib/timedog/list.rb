@@ -1,5 +1,4 @@
 require 'timedog/utils'
-require 'pry-nav'
 
 module Timedog
   module List

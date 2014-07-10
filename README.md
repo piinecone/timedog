@@ -69,3 +69,6 @@ Todo
 
 Contributing
 ------------
+* Fork it
+* Make sure the hypothetical automated test suite passes
+* Pull Request a feature branch with your changes

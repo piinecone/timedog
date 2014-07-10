@@ -1,6 +1,5 @@
 require 'digest'
 require 'fileutils'
-require 'pry-nav'
 
 module Timedog
   module Utils
