@@ -19,6 +19,9 @@ module Timedog
         when 'watch'
           require 'timedog/watch'
           Timedog::Watch.run!
+        when 'freeze'
+          require 'timedog/freeze'
+          Timedog::Freeze.run!
         when 'restore'
           require 'timedog/fetch'
           Timedog::Fetch.run! # steps or time
@@ -38,6 +41,7 @@ usage: timedog list|watch|restore|add|remove|clean
    status
    list
    watch
+   freeze
    restore
    add
    remove

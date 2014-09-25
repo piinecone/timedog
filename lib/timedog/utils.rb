@@ -5,6 +5,7 @@ module Timedog
   module Utils
     CONFIG_PATH = '.timedog/config'
     BACKUP_PATH = '.timedog/objects'
+    FREEZE_PATH = '.timedog/frozen'
 
     def self.config_filename
       unless File.directory?('.timedog')
@@ -38,6 +39,12 @@ module Timedog
       BACKUP_PATH
     end
 
+    def self.freeze_root
+      FileUtils.mkdir_p(FREEZE_PATH)
+
+      FREEZE_PATH
+    end
+
     def self.recent_backup_dir(options={})
       dirs = backup_dirs
       dirs.delete options.fetch(:before, '')
@@ -47,6 +54,38 @@ module Timedog
     def self.files_exactly_match?(file_a, file_b)
       File.exists?(file_a) && File.exists?(file_b) &&
         cross_platform_hash(file_a) == cross_platform_hash(file_b)
+    end
+
+    def self.get_filepaths(prefix='.')
+      paths = []
+      if patterns.empty?
+        puts "No patterns in .timedog/config, including all files in #{prefix}"
+        paths << Dir["#{prefix}/**/*"].select {|f| !File.directory? f }
+      else
+        patterns.each do |pattern|
+          extension = pattern.partition('.').last
+          match = "#{prefix}/**/*.#{extension}"
+          puts match
+          paths << Dir[match]
+        end
+      end
+      paths.flatten
+    end
+
+    def self.patterns
+      @patterns ||= begin 
+        patterns = []
+        File.open(config_filename, 'r') do |file|
+          file.each_line do |line|
+            line.gsub!('\n', '')
+            line.gsub!('\t', '')
+            line.gsub!('\r', '')
+            line.gsub!(/\s+/, '')
+            patterns << line
+          end
+        end
+        patterns
+      end
     end
 
     private
